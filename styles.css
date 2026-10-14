@@ -236,6 +236,7 @@ p { margin: 0 0 1em; }
 .player iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 14px; }
 .player__empty { padding: 48px 32px; text-align: center; border-radius: 14px; background: linear-gradient(160deg, rgba(30, 215, 96, 0.12), rgba(255, 255, 255, 0.02)); }
 .player__empty svg { width: 56px; height: 56px; color: var(--spotify); margin: 0 auto 16px; }
+.player iframe.player__apple { height: 450px; }
 .player__empty h3 { margin-bottom: 0.3em; }
 .player__empty p { color: var(--muted); margin: 0; }
 

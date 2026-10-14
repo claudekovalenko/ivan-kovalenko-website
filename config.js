@@ -10,20 +10,21 @@ window.SITE = {
   ministryName: "Ivan Kovalenko Ministries",
   tagline: "Sharing the hope of Jesus — one conversation at a time.",
   heroVerse: {
-    text: "How beautiful are the feet of those who bring good news!",
-    ref: "Romans 10:15",
+    text: "Well done, good and faithful servant.",
+    ref: "Matthew 25:21",
   },
 
   // ── Podcast ────────────────────────────────────────────────────
   podcast: {
-    title: "The Podcast",
+    title: "Well Done",
     description:
-      "Honest conversations about faith, Scripture, and following Jesus in everyday life. New episodes on Spotify.",
+      "Honest conversations about faith, Scripture, and following Jesus in everyday life.",
     // Paste your show link from Spotify (Share → Copy link to show), e.g.
     // "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk"
-    spotifyShowUrl: "",
-    // Optional extra platforms — leave "" to hide a button.
-    applePodcastsUrl: "",
+    spotifyShowUrl: "https://open.spotify.com/show/1iOLu96BVB8n6BvHDGOSKy",
+    // Apple Podcasts show link. Shown as a button (and used as the player if Spotify is blank).
+    applePodcastsUrl: "https://podcasts.apple.com/us/podcast/well-done/id1843223742",
+    // Optional — leave "" to hide the button.
     youtubeUrl: "",
   },
 

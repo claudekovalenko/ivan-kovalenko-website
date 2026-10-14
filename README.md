@@ -6,7 +6,7 @@ A fast, single-page static site: no build step, no framework. Open `index.html` 
 
 | Setting | What it does |
 | --- | --- |
-| `podcast.spotifyShowUrl` | **Paste your Spotify show link here.** In Spotify, open your show, then **Share → Copy link to show**. The embedded player and every "Listen on Spotify" button switch on automatically. |
+| `podcast.spotifyShowUrl` | Your Spotify show link (already set to **Well Done**). In Spotify, open your show, then **Share → Copy link to show**. The embedded player and every "Listen on Spotify" button switch on automatically. |
 | `podcast.applePodcastsUrl`, `podcast.youtubeUrl` | Extra listen buttons. Leave `""` to hide them. |
 | `email` | Where the contact form sends messages (it opens the visitor's email app). |
 | `social.*` | Instagram / YouTube / Facebook links. Empty ones are hidden. |

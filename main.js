@@ -14,20 +14,26 @@
   const pod = S.podcast || {};
   const player = document.getElementById("player");
   const match = (pod.spotifyShowUrl || "").match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(show|episode)\/([A-Za-z0-9]+)/);
+  const apple = (pod.applePodcastsUrl || "").match(/podcasts\.apple\.com\/(.+)$/);
+  const listenLinks = document.querySelectorAll("[data-spotify-link]");
+  const pointListenAt = (url, label) => listenLinks.forEach((a) => {
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    if (label) a.querySelector("[data-listen-label]").textContent = label;
+  });
   if (match) {
     const [, type, id] = match;
     player.innerHTML = `<iframe title="${pod.title || "Podcast"} on Spotify" src="https://open.spotify.com/embed/${type}/${id}?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
-    document.querySelectorAll("[data-spotify-link]").forEach((a) => {
-      a.href = pod.spotifyShowUrl;
-      a.target = "_blank";
-      a.rel = "noopener";
-    });
+    pointListenAt(pod.spotifyShowUrl);
+  } else if (apple) {
+    player.innerHTML = `<iframe class="player__apple" title="${pod.title || "Podcast"} on Apple Podcasts" src="https://embed.podcasts.apple.com/${apple[1]}?theme=dark" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" loading="lazy"></iframe>`;
+    pointListenAt(pod.applePodcastsUrl, "Listen now");
   } else {
     player.innerHTML = `
       <div class="player__empty">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.4-2.1-10.6-1.2a.75.75 0 1 1-.33-1.46c4.6-1 8.6-.6 11.7 1.3.35.22.47.68.25 1.1Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.2-2-8.1-2.55-11.9-1.4a.94.94 0 1 1-.54-1.8c4.3-1.3 9.7-.67 13.4 1.6.44.27.58.85.31 1.29Zm.13-3.4C15.3 8.4 8.9 8.2 5.2 9.3a1.12 1.12 0 1 1-.65-2.15c4.3-1.3 11.3-1.05 15.7 1.56a1.12 1.12 0 0 1-1.15 1.93Z"/></svg>
         <h3>Episodes coming soon</h3>
-        <p>Add your Spotify show link in <code>config.js</code> and the player appears here.</p>
+        <p>Add your Spotify or Apple Podcasts show link in <code>config.js</code> and the player appears here.</p>
       </div>`;
   }
 
