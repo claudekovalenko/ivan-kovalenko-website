@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ivan Kovalenko — Ministry &amp; the Well Done Podcast</title>
-  <meta name="description" content="Ivan Kovalenko Ministries — teaching, encouragement, and Well Done, a podcast about following Jesus." />
-  <meta property="og:title" content="Ivan Kovalenko — Ministry & the Well Done Podcast" />
-  <meta property="og:description" content="Teaching, encouragement, and Well Done, a podcast about following Jesus." />
+  <title>Well Done — a podcast with Ivan Kovalenko</title>
+  <meta name="description" content="Well Done — a podcast about faith with Ivan Kovalenko. Teaching, encouragement, and prayer." />
+  <meta property="og:title" content="Well Done — a podcast with Ivan Kovalenko" />
+  <meta property="og:description" content="A podcast about faith, Scripture, and following Jesus in everyday life." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#f6f1e8" />
+  <meta name="theme-color" content="#0a0a0a" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="config.js" defer></script>
   <script src="main.js" defer></script>
@@ -36,31 +36,17 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow" data-site="ministryName">Ivan Kovalenko Ministries</p>
-          <h1>Living for the words <em>“well&nbsp;done.”</em></h1>
-          <p class="lead" data-site="tagline">Sharing the hope of Jesus — one conversation at a time.</p>
-          <div class="actions">
-            <a class="btn" href="#podcast">Listen to the podcast</a>
-            <a class="link" href="#about">About Ivan →</a>
-          </div>
+      <div class="wrap hero__inner">
+        <p class="kicker">A podcast with <span data-site="name">Ivan Kovalenko</span></p>
+        <h1 class="hero__title">Well Done</h1>
+        <p class="hero__verse"><span data-site="heroVerse.text">Well done, good and faithful servant.</span> <span class="hero__ref" data-site="heroVerse.ref">Matthew 25:21</span></p>
+        <div class="actions">
+          <a class="btn" href="#podcast">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            Listen now
+          </a>
+          <a class="btn btn--ghost" href="#about">About Ivan</a>
         </div>
-
-        <a class="cover" href="#podcast" aria-label="Well Done podcast">
-          <span class="cover__top">A podcast</span>
-          <svg class="cover__cross" viewBox="0 0 24 40" aria-hidden="true"><path d="M12 2v36M3 13h18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
-          <span class="cover__title">Well<br />Done</span>
-          <span class="cover__by">with <span data-site="name">Ivan Kovalenko</span></span>
-        </a>
-      </div>
-    </section>
-
-    <!-- VERSE -->
-    <section class="verse">
-      <div class="wrap">
-        <blockquote data-site="heroVerse.text">Well done, good and faithful servant.</blockquote>
-        <p class="verse__ref" data-site="heroVerse.ref">Matthew 25:21</p>
       </div>
     </section>
 
@@ -68,8 +54,8 @@
     <section class="section" id="podcast">
       <div class="wrap split">
         <div>
-          <p class="eyebrow">The Podcast</p>
-          <h2 data-site="podcast.title">Well Done</h2>
+          <p class="label">01 — The Podcast</p>
+          <h2>Faith for real life.</h2>
           <p class="lead" data-site="podcast.description">Honest conversations about faith, Scripture, and following Jesus in everyday life.</p>
           <div class="platforms" id="platforms"></div>
         </div>
@@ -78,11 +64,11 @@
     </section>
 
     <!-- ABOUT -->
-    <section class="section section--tint" id="about">
-      <div class="wrap split split--about">
+    <section class="section section--alt" id="about">
+      <div class="wrap split split--top">
         <div>
-          <p class="eyebrow">About</p>
-          <h2>Hi, I'm <span data-site="name">Ivan Kovalenko</span>.</h2>
+          <p class="label">02 — About</p>
+          <h2>Hi, I'm <span class="gold" data-site="name">Ivan Kovalenko</span>.</h2>
         </div>
         <div class="prose">
           <p>
@@ -94,7 +80,6 @@
             Whether you're exploring faith for the first time or have walked with God for years,
             you're welcome here. Press play, and let's open the Scriptures together.
           </p>
-          <p class="signature">— Ivan</p>
         </div>
       </div>
     </section>
@@ -102,21 +87,18 @@
     <!-- MINISTRY -->
     <section class="section" id="ministry">
       <div class="wrap">
-        <p class="eyebrow">The Ministry</p>
-        <h2>What we do</h2>
+        <p class="label">03 — Ministry</p>
+        <h2>What we do.</h2>
         <div class="pillars">
           <article>
-            <span class="num">01</span>
             <h3>Podcast</h3>
             <p>Episodes unpacking Scripture and real-life questions of faith, wherever you listen.</p>
           </article>
           <article>
-            <span class="num">02</span>
             <h3>Teaching</h3>
             <p>Bible teaching for churches, youth groups, conferences, and small groups — in person or online.</p>
           </article>
           <article>
-            <span class="num">03</span>
             <h3>Prayer</h3>
             <p>Every prayer request is read and prayed over. You don't have to carry it alone.</p>
           </article>
@@ -125,27 +107,27 @@
     </section>
 
     <!-- BELIEFS -->
-    <section class="beliefs">
-      <div class="wrap narrow">
-        <p class="eyebrow">What we believe</p>
-        <p class="beliefs__text">
-          One God — Father, Son, and Holy Spirit. Jesus Christ died for our sins and rose again.
-          Salvation is a gift received by grace through faith. The Bible is God's Word, living and true.
+    <section class="statement">
+      <div class="wrap">
+        <p class="label">What we believe</p>
+        <p class="statement__text">
+          One God — Father, Son, and Holy Spirit. Jesus died for our sins and rose again.
+          Salvation is a gift of grace, received through faith. <span class="gold">The Bible is God's Word, living and true.</span>
         </p>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="section" id="contact">
-      <div class="wrap split">
+      <div class="wrap split split--top">
         <div>
-          <p class="eyebrow">Contact</p>
+          <p class="label">04 — Contact</p>
           <h2>Let's talk.</h2>
           <p class="lead">A prayer request, a question about faith, or an invitation to speak — send a message anytime.</p>
           <div class="socials" id="socials"></div>
           <div class="give" id="give" hidden>
             <p>Your generosity keeps the podcast and teaching free for everyone.</p>
-            <a class="btn btn--outline" id="give-link" href="#" target="_blank" rel="noopener">Support the ministry</a>
+            <a class="btn btn--ghost" id="give-link" href="#" target="_blank" rel="noopener">Support the ministry</a>
           </div>
         </div>
         <form class="form" id="contact-form" novalidate>
@@ -172,8 +154,8 @@
 
   <footer class="footer">
     <div class="wrap footer__inner">
+      <p class="footer__mark">Well Done</p>
       <p>© <span id="year">2026</span> <span data-site="ministryName">Ivan Kovalenko Ministries</span></p>
-      <p class="footer__soli">Soli Deo Gloria</p>
     </div>
   </footer>
 </body>

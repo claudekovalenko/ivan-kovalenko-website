@@ -38,8 +38,8 @@
   const platforms = document.getElementById("platforms");
   [
     ["Listen on Spotify", pod.spotifyShowUrl, "btn"],
-    ["Apple Podcasts", pod.applePodcastsUrl, "btn btn--outline"],
-    ["YouTube", pod.youtubeUrl, "btn btn--outline"],
+    ["Apple Podcasts", pod.applePodcastsUrl, "btn btn--ghost"],
+    ["YouTube", pod.youtubeUrl, "btn btn--ghost"],
   ].forEach(([label, url, cls]) => {
     if (url) platforms.insertAdjacentHTML("beforeend", `<a class="${cls}" href="${url}" target="_blank" rel="noopener">${label}</a>`);
   });
