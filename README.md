@@ -13,7 +13,6 @@ A fast, single-page static site: no build step, no framework. Open `index.html` 
 | `givingUrl` | A link to an online giving page. Setting it shows a "Support the ministry" box. |
 | `name`, `tagline`, `heroVerse` | Headline text. |
 
-**Your photo:** add a portrait named `assets/portrait.jpg` (portrait orientation, about 800×1000). It replaces the placeholder automatically.
 
 The About, Ministry and Beliefs wording is in `index.html`. Search for the section and edit the text.
 
