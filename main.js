@@ -22,12 +22,24 @@
     a.rel = "noopener";
     if (label) a.querySelector("[data-listen-label]").textContent = label;
   });
+  // The real players are heavy, so show a lightweight card and load the player on tap.
+  const facade = (label, src, cls) => {
+    player.innerHTML = `
+      <button class="player__facade" type="button" aria-label="Load the ${label} player">
+        <span class="player__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></span>
+        <span class="player__title">${pod.title || "The Podcast"}</span>
+        <span class="player__sub">Tap to play episodes · ${label}</span>
+      </button>`;
+    player.querySelector("button").addEventListener("click", () => {
+      player.innerHTML = `<iframe class="${cls}" title="${pod.title || "Podcast"} on ${label}" src="${src}" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
+    }, { once: true });
+  };
   if (match) {
     const [, type, id] = match;
-    player.innerHTML = `<iframe title="${pod.title || "Podcast"} on Spotify" src="https://open.spotify.com/embed/${type}/${id}?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+    facade("Spotify", `https://open.spotify.com/embed/${type}/${id}?utm_source=generator&theme=0`, "");
     pointListenAt(pod.spotifyShowUrl);
   } else if (apple) {
-    player.innerHTML = `<iframe class="player__apple" title="${pod.title || "Podcast"} on Apple Podcasts" src="https://embed.podcasts.apple.com/${apple[1]}?theme=dark" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" loading="lazy"></iframe>`;
+    facade("Apple Podcasts", `https://embed.podcasts.apple.com/${apple[1]}?theme=dark`, "player__apple");
     pointListenAt(pod.applePodcastsUrl, "Listen now");
   } else {
     player.innerHTML = `
@@ -122,37 +134,30 @@
   document.querySelectorAll(".cards .reveal").forEach((el, i) => el.style.setProperty("--d", `${i * 0.12}s`));
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
-  // ── Twinkling starfield in the hero ──────────────────────
+  // ── Starfield in the hero: drawn once, no animation loop ──
   const canvas = document.getElementById("stars");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ctx = canvas.getContext("2d");
-  let stars = [];
-  const resize = () => {
+  const drawStars = () => {
     const dpr = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = canvas.offsetWidth * dpr;
-    canvas.height = canvas.offsetHeight * dpr;
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.round((canvas.offsetWidth * canvas.offsetHeight) / 9000);
-    stars = Array.from({ length: count }, () => ({
-      x: Math.random() * canvas.offsetWidth,
-      y: Math.random() * canvas.offsetHeight * 0.85,
-      r: Math.random() * 1.2 + 0.2,
-      p: Math.random() * Math.PI * 2,
-      s: 0.5 + Math.random() * 1.5,
-    }));
-  };
-  const draw = (t) => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const st of stars) {
-      const a = 0.25 + 0.6 * (0.5 + 0.5 * Math.sin(st.p + (t / 1000) * st.s));
-      ctx.fillStyle = `rgba(255, 240, 210, ${a})`;
+    const count = Math.min(160, Math.round((w * h) / 9000));
+    for (let i = 0; i < count; i++) {
+      ctx.fillStyle = `rgba(255, 240, 210, ${0.25 + Math.random() * 0.6})`;
       ctx.beginPath();
-      ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+      ctx.arc(Math.random() * w, Math.random() * h * 0.85, Math.random() * 1.2 + 0.2, 0, Math.PI * 2);
       ctx.fill();
     }
-    if (!reduce) requestAnimationFrame(draw);
   };
-  addEventListener("resize", resize);
-  resize();
-  requestAnimationFrame(draw);
+  let lastWidth = innerWidth;
+  addEventListener("resize", () => {
+    if (innerWidth !== lastWidth) {
+      lastWidth = innerWidth;
+      drawStars();
+    }
+  });
+  drawStars();
 })();
