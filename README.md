@@ -20,3 +20,7 @@ The About, Ministry and Beliefs wording is in `index.html`. Search for the secti
 
 - **GitHub Pages:** go to repo **Settings → Pages**, set Source to *Deploy from a branch*, and pick this branch with `/ (root)`.
 - **Netlify / Cloudflare Pages / Vercel:** import the repo with no build command and `/` as the output directory.
+
+## Hiding the site temporarily
+
+While a file named `PRIVATE` exists in the repo, the live site shows only a "Coming soon" page (`coming-soon.html`). Delete `PRIVATE` to publish the full website again.

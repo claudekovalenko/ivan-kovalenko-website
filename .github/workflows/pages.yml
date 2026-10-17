@@ -23,7 +23,14 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -r index.html styles.css main.js config.js CNAME assets _site/
+          if [ -f PRIVATE ]; then
+            # Site is hidden: publish only the "Coming soon" page.
+            cp coming-soon.html _site/index.html
+            cp -r CNAME assets _site/
+            printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+          else
+            cp -r index.html styles.css main.js config.js CNAME assets _site/
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
